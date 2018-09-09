@@ -73,6 +73,15 @@ app.post("/api/contacts", function(req, res) {
   }
 });
 
+app.post("/api/events", function(req, res) {
+
+  if (!req.body.challenge) {
+    handleError(res, "no Challege", 400);
+  } else {
+        res.status(201).json({challenge: req.body.challenge);
+      }
+  });
+
 /*  "/api/contacts/:id"
  *    GET: find contact by id
  *    PUT: update contact by id
